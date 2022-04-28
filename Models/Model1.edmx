@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище Database1Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Запись">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="фамилия" Type="nvarchar" MaxLength="50" />
+          <Property Name="имя" Type="nvarchar" MaxLength="50" />
+          <Property Name="отчество" Type="nvarchar" MaxLength="50" />
+          <Property Name="пол" Type="nchar" MaxLength="1" />
+          <Property Name="услуга" Type="nvarchar" MaxLength="50" />
+          <Property Name="дата" Type="date" />
+          <Property Name="время" Type="time" Precision="7" />
+        </EntityType>
+        <EntityType Name="Услуги">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="название" Type="nvarchar" MaxLength="50" />
+          <Property Name="цена" Type="money" />
+          <Property Name="продолжительность" Type="time" Precision="7" />
+        </EntityType>
+        <EntityContainer Name="Хранилище Database1ModelContainer">
+          <EntitySet Name="Запись" EntityType="Self.Запись" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Услуги" EntityType="Self.Услуги" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Database1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Запись">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="фамилия" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="имя" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="отчество" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="пол" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="услуга" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="дата" Type="DateTime" Precision="0" />
+          <Property Name="время" Type="Time" Precision="7" />
+        </EntityType>
+        <EntityType Name="Услуги">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="название" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="цена" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="продолжительность" Type="Time" Precision="7" />
+        </EntityType>
+        <EntityContainer Name="Database1Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Запись" EntityType="Self.Запись" />
+          <EntitySet Name="Услуги" EntityType="Self.Услуги" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище Database1ModelContainer" CdmEntityContainer="Database1Entities">
+          <EntitySetMapping Name="Запись">
+            <EntityTypeMapping TypeName="Database1Model.Запись">
+              <MappingFragment StoreEntitySet="Запись">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="фамилия" ColumnName="фамилия" />
+                <ScalarProperty Name="имя" ColumnName="имя" />
+                <ScalarProperty Name="отчество" ColumnName="отчество" />
+                <ScalarProperty Name="пол" ColumnName="пол" />
+                <ScalarProperty Name="услуга" ColumnName="услуга" />
+                <ScalarProperty Name="дата" ColumnName="дата" />
+                <ScalarProperty Name="время" ColumnName="время" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Услуги">
+            <EntityTypeMapping TypeName="Database1Model.Услуги">
+              <MappingFragment StoreEntitySet="Услуги">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="название" ColumnName="название" />
+                <ScalarProperty Name="цена" ColumnName="цена" />
+                <ScalarProperty Name="продолжительность" ColumnName="продолжительность" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
